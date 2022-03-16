@@ -35,6 +35,8 @@
 		</p>
         <input type="text" id="form_text" name="form_text">
         <button onclick="makeNewDiv()"> Add value </button>
+        <button onclick="fetchItem()"> Fetch</button>
+        <button onclick="zap()"> Zap values</button>
 	
 </body>
 <script>
@@ -49,5 +51,26 @@
         container.insertBefore(element, container.firstChild);
 
 	}
+    function fetchItem() {
+        queueItems = document.getElementsByClassName('queue');
+        var length = queueItems.length;
+        if (length > 0) {
+            for (let i = 0; i < length; i++) {
+                queueItems[length - 1].remove();
+            }
+        }
+    }
+
+    function zap() {
+        var queueItems = document.getElementsByClassName("queue")
+        var length = queueItems.length;
+        var item = document.getElementById("form_text").value;
+        for (let i = 0; i < length; i++) {
+            if (item == queueItems[i].innerHTML) {
+                queueItems[i].remove();
+                console.log(" getting rid of all the elements with that text");
+            }
+        }
+    }
 </script>
 </html>	
