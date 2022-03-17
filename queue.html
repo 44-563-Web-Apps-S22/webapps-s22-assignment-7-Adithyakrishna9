@@ -37,6 +37,7 @@
         <button onclick="makeNewDiv()"> Add value </button>
         <button onclick="fetchItem()"> Fetch</button>
         <button onclick="zap()"> Zap values</button>
+        <button onclick="removeDups()">Unique</button>
 	
 </body>
 <script>
@@ -61,16 +62,30 @@
         }
     }
 
-    function zap() {
+    function zap() {   
         var queueItems = document.getElementsByClassName("queue")
         var length = queueItems.length;
         var item = document.getElementById("form_text").value;
-        for (let i = 0; i < length; i++) {
-            if (item == queueItems[i].innerHTML) {
+        for (let i = 0; i < length; i++) {   
+            if (item == queueItems[i].innerHTML) {   
                 queueItems[i].remove();
                 console.log(" getting rid of all the elements with that text");
-            }
+            }  
         }
     }
+
+    function removeDups() {
+		queueItems = document.getElementsByClassName("queue")
+		for (let i = 0; i < queueItems.length; i++) {
+			for (let j = 0; j < queueItems.length; j++) {
+				cnt=0
+				if(queueItems[i].innerHTML == queueItems[j].innerHTML && i!=j){
+					queueItems[j].remove();
+				}
+			}	
+		}
+		console.log("removing the duplicates");
+	}
+
 </script>
 </html>	

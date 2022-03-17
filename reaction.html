@@ -32,6 +32,10 @@
     myTime = Date.now();
        console.log("Current time in milliseconds is "+ myTime);
   }
+
+  function generateRandomIntegerInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   
   function startTime() {
       for (i=0;i<4;i++)
